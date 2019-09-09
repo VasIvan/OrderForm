@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Pizza order Form</title>
+  </head>
+  <body>
+    <h1>Pizza Order Form</h1>
+
+    <!-- Login form-->
+
+    <form>
+      <fieldset>
+        <legend><h3>Login</h3></legend>
+
+        Username: <br />
+        <input type="text" id="usr" /> <br />
+        Phone Number: <br />
+        <input type="number" id="phn" /> <br />
+        <br />
+
+        <button type="reset" value="Reset">Reset</button>
+        <button type="button" value="Login" onclick="myName(); myNm(); myPh();">Login</button>
+        <br />
+        <br />
+      </fieldset>
+    </form>
+
+    
+
+    <h3 id="usrnm"></h3>
+
+    <hr />
+
+    <!-- Order -->
+    <!-- Type -->
+    <div id="otp">
+      <h1>Please, choose your pizza type.</h1>
+      <h3>Hawai (small) - <span id="hvpr"> 8 </span> euroa</h3>
+      <input
+        type="image"
+        src="havai.jpg"
+        height="300"
+        width="400"
+        onclick="myNext(); hav(); "
+      />
+      <h3>Margarita (small) - <span id="marpr"> 7 </span> euroa</h3>
+      <input
+        type="image"
+        src="marg.jpg"
+        height="300"
+        width="400"
+        onclick="myNext(); marg(); "
+      />
+      <h3>Quatro Formagio (small) - <span id="quapr"> 10 </span> euroa</h3>
+      <input
+        type="image"
+        src="quat.jpg"
+        height="300"
+        width="400"
+        onclick="myNext(); quat(); "
+      />
+    </div>
+
+    <!-- Size -->
+
+    <div id="osz" style="display: none;">
+      <h1>Please, choose your pizza type.</h1>
+      <input type="radio" name="size" value="small" id="smallsize" onclick="myNext1(); sml();"/>
+      <b>Small: + <span id="szsm"> 0 </span> euroa </b>
+      <input type="radio" name="size" value="medium" id="mediumsize" onclick="myNext1(); md();" />
+      <b>Medium: + <span id="szmd"> 2 </span> euroa </b>
+      <input type="radio" name="size" value="large" id="largesize" onclick="myNext1(); lrg();"/>
+      <b>Large: + <span id="szlr"> 4 </span> euroa </b>
+      <input type="radio" name="size" value="family" id="familysize" onclick="myNext1(); fml();"/>
+      <b>Family: + <span id="szfm"> 8 </span> euroa </b>
+      <br />
+      <br />
+      <span> <img src="sizes.png" alt="pizza" /> </span>
+    </div>
+
+
+    <!-- DRINK -->
+
+
+<div id="odr" style="display: none;">
+
+
+
+
+
+      <h1>Please, choose your drink.</h1>
+      <h3>Coka Cola - <span id="drcl"> 2 </span> euroa</h3>
+      <input
+        type="image"
+        src="cola.png"
+        height="300"
+        width="400"
+        onclick="myNext2(); cola(); "
+      />
+      <h3>Fanta - <span id="drft"> 2 </span> euroa</h3>
+      <input
+        type="image"
+        src="fanta.png"
+        height="300"
+        width="400"
+        onclick="myNext2(); fanta(); "
+      />
+      <h3>I don't want drink - <span id="drno"> 0 </span> euroa</h3>
+      <input
+        type="image"
+        src="no.png"
+        height="300"
+        width="400"
+        onclick="myNext2(); myNo(); "
+      />
+    </div>
+
+
+    <!-- PAYMENT -->
+
+
+    <div id="opm" style="display: none;">
+
+
+
+
+
+        <h1>Please, choose your payment method.</h1>
+        <h3>Cash</h3>
+        <input
+          type="image"
+          src="cash.png"
+          height="100"
+          width="200"
+          onclick="myNext3(); csh(); "
+        />
+        <h3>Klarna</h3>
+        <input
+          type="image"
+          src="klarna.png"
+          height="100"
+          width="200"
+          onclick="myNext3(); klr(); "
+        />
+        <h3>Visa</h3>
+        <input
+          type="image"
+          src="visa.png"
+          height="100"
+          width="200"
+          onclick="myNext3(); myVisa(); "
+        />
+      </div>
+
+
+
+
+      <!-- DELIVERY -->
+
+
+
+      <div id="odl" style="display: none;">
+          <h1>Please, choose your delivery method.</h1>
+          <input type="radio" name="delivery" value="home" id="hmdl" onclick="myNext4(); hmdl();"/>
+          <b>Home delivery: + <span id="dlhd"> 4 </span> euroa </b> <br> <br>
+          <input type="radio" name="delivery" value="not" id="notdl" onclick="myNext4(); notdl();" />
+          <b>Pick up: + <span id="dlpu"> 0 </span> euroa </b>
+          
+          <br />
+          <br />
+        
+        </div>
+
+
+        <!-- ADDITIONAL INFO-->
+
+
+        <div id="oad" style="display: none;">
+          <h1>Please, add your extra wishes here.</h1>
+
+
+          <textarea rows="10" cols="50" name="comment" id="addinf" placeholder="Write here ..."></textarea>
+          <button type="button" value='addsend' onclick="myNext5(); adinf();" > Send </button>
+          <br />
+          <br />
+        
+        </div>
+
+
+
+
+    <!-- Confirm order -->
+    
+
+    <div id="ocnf" style="display: none;" >
+
+    <h2>Confirmation</h2>
+
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Price<br>(euroa):</th>
+      </tr>
+      <tr>
+        <th>Name:</th>
+        <td id="cnm"></td>
+        <th id="cnmpr"></th>
+      </tr>
+      <tr>
+        <th>Phone:</th>
+        <td id="cph"></td>
+        <th id="cphpr"></th>
+      </tr>
+      <tr>
+        <th>Type:</th>
+        <td id="ctp"></td>
+        <th id="ctppr"></th>
+      </tr>
+      <tr>
+        <th>Size:</th>
+        <td id='csz'></td>
+        <th id="cszpr"></th>
+      </tr>
+      <tr>
+        <th>Drink:</th>
+        <td id="cdr"></td>
+        <th id="cdrpr"></th>
+      </tr>
+      <tr>
+        <th>Payment:</th>
+        <td id="cpm"></td>
+        <th id="cpmpr"></th>
+      </tr>
+      <tr>
+        <th>Delivery:</th>
+        <td id="cdl"></td>
+        <th id="cdlpr"></th>
+      </tr>
+      <tr>
+        <th>
+          Additional <br />
+          information:
+        </th>
+        <td id='cad'></td>
+        <th id="cadpr"></th>
+      </tr>
+      <tr>
+        <th>Total Price:</th>
+        <th></th>
+        <th id="ttlpr"></th>
+      </tr>
+    </table>
+
+    <button type="button" onclick="myOrdr()">Order</button>
+
+    </div>
+
+    <hr>
+
+    <h1 id="snt"></h1>
+    <button type="button" id="btnnew" onclick="myNewOrdr()" style="display: none;">New Order</button>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
