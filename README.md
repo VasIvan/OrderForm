@@ -1,4 +1,4 @@
 Pizza order form
 ===
 
-*Simple pizza order form exercise. The main focus is on JS, not on CSS.*
+*Simple pizza order multistep form exercise. JS practise(school work)*
